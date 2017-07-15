@@ -32,3 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+BaitsFishingCompany/Library/metadata/*
+BaitsFishingCompany/Library/ShaderCache/*
+BaitsFishingCompany/Library/metadata/00/00000000000000001000000000000000
+BaitsFishingCompany/Library/metadata/00/00000000000000002000000000000000
