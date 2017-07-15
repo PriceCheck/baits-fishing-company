@@ -286,58 +286,14 @@ Prefab:
       propertyPath: m_Name
       value: MonsterPhysicsPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 135315677304393096, guid: 92c6492f204120740a80b9e063dcbab3,
+    - target: {fileID: 114187193300205128, guid: 92c6492f204120740a80b9e063dcbab3,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: toFollow
+      value: 
+      objectReference: {fileID: 1799934510}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92c6492f204120740a80b9e063dcbab3, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &500235380 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1978122244297020, guid: 92c6492f204120740a80b9e063dcbab3,
-    type: 2}
-  m_PrefabInternal: {fileID: 500235379}
---- !u!114 &500235382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 500235380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8425a30136c114887bd5fce5d9d4c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toFollow: {fileID: 1799934510}
-  speedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0.005873602
-      value: 0.60285467
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.50003254
-      value: 0.70170593
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1.0053406
-      value: 0.988739
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  minDistance: 0.05
-  maxDistance: 10
-  maxSpeed: 10
 --- !u!1 &663546989
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,26 +538,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 212323869205278620, guid: e20a3ab20d62f15469b087565d7b1724,
+    - target: {fileID: 114490532860094646, guid: e20a3ab20d62f15469b087565d7b1724,
         type: 2}
-      propertyPath: m_Sprite
+      propertyPath: globals
       value: 
-      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 212323869205278620, guid: e20a3ab20d62f15469b087565d7b1724,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 212323869205278620, guid: e20a3ab20d62f15469b087565d7b1724,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 212323869205278620, guid: e20a3ab20d62f15469b087565d7b1724,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 663546989}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e20a3ab20d62f15469b087565d7b1724, type: 2}
   m_IsPrefabParent: 0
@@ -610,15 +551,3 @@ GameObject:
   m_PrefabParentObject: {fileID: 1475607545791278, guid: e20a3ab20d62f15469b087565d7b1724,
     type: 2}
   m_PrefabInternal: {fileID: 1776427261}
---- !u!114 &1799934511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1799934510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3ca3fea82353d44b3a28e01e1949c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  globals: {fileID: 663546989}
