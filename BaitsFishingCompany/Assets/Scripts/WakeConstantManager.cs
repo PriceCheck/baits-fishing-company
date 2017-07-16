@@ -17,7 +17,7 @@ public class WakeConstantManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(player.isActiveAndEnabled)
+        if(!player.isActiveAndEnabled)
         { return; }
         transform.position = player.transform.position + player.transform.TransformDirection(Offset);
         if (onlyShowOnThump && !player.thwamping)

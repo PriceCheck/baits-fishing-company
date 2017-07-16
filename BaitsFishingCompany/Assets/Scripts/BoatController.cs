@@ -23,8 +23,8 @@ public class BoatController : MonoBehaviour {
     public AnimationCurve AccelerationRate = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [HideInInspector]
     public float currentDirecitalTime = 0;
-    [HideInInspector]
-    public float timeTilMaxSpeed = 0.8f;
+    
+    public float timeTilMaxSpeed = 5.0f;
 
     public float rotLerpTime = 0;
     public float rotLerpTimeTotal = 1;

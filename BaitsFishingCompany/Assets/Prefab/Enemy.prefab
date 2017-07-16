@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4621038283494688}
   - component: {fileID: 212798784743239052}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0.98
-  m_AngularDrag: 0.05
+  m_AngularDrag: 4
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -110,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de1c14495cd3b2418c35ead0c6bdb97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: e47d13e521dbf504597a52c44a8c3d35, type: 3}
+  - {fileID: 21300000, guid: 9507e0eb36fd4b84993c5333d92aeca1, type: 3}
+  mySpriteRenderer: {fileID: 212798784743239052}
   hungerAcceleration: 2
   fearAcceleration: 6
   superFearAcceleration: 10

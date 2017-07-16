@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour {
 
+    public Sprite[] sprites;
+    public SpriteRenderer mySpriteRenderer;
     private GameObject boat;
     private GameObject monster;
 
@@ -128,8 +130,14 @@ public class EnemyLogic : MonoBehaviour {
         Quaternion goalDirection = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = goalDirection;
 
-        if (curStunTime > 0)
+        if (curStunTime > 0) {
+            mySpriteRenderer.sprite = sprites[1];
             return;
+        }
+        else
+        {
+            mySpriteRenderer.sprite = sprites[0];
+        }
 
         LogicLogic();
 
