@@ -10,7 +10,8 @@ public class BoatController : MonoBehaviour {
 
     public GameObject Monster;
     float maxSpeed = 10;
-    bool thwamping = false;
+    [HideInInspector]
+    public bool thwamping = false;
     public int health = 10;
 
     public float angularMoveSpeed = 180;
@@ -20,8 +21,10 @@ public class BoatController : MonoBehaviour {
     public float maxDistance = 4.1f;
 
     public AnimationCurve AccelerationRate = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    float currentDirecitalTime = 0;
-    float timeTilMaxSpeed = 0.8f;
+    [HideInInspector]
+    public float currentDirecitalTime = 0;
+    [HideInInspector]
+    public float timeTilMaxSpeed = 0.8f;
 
     public float rotLerpTime = 0;
     public float rotLerpTimeTotal = 1;
@@ -56,6 +59,7 @@ public class BoatController : MonoBehaviour {
         currentDirecitalTime = Mathf.Clamp(currentDirecitalTime, -timeTilMaxSpeed, timeTilMaxSpeed);
 
         thwamping = Mathf.Abs(currentDirecitalTime) >= Mathf.Abs(timeTilMaxSpeed) - 0.05;
+        Monster.GetComponent<FollowObject>().isActive = !thwamping;
 
         if( DistanceTo(Monster) > maxDistance )
         {

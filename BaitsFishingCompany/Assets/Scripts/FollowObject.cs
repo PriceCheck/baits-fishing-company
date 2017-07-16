@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowObject : MonoBehaviour {
-
+    public bool isActive = true;
     public GameObject toFollow;
     public AnimationCurve speedCurve;
     public float minDistance = 1;
@@ -21,6 +21,13 @@ public class FollowObject : MonoBehaviour {
 
     private void LateUpdate()
     {
+        if(!isActive) {
+            if (GetComponent<Rigidbody>())
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+            return;
+        }
         Vector3 toObject =  toFollow.transform.position - transform.position;
         toObject.z = 0;
         float distanceToObject = toObject.magnitude;
