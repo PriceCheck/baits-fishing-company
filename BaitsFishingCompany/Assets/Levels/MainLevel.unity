@@ -115,6 +115,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4873549695727434, guid: 43f930983f7835e479605bcd07dd5c6c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.93
@@ -155,6 +160,51 @@ Prefab:
     - target: {fileID: 1390293707577230, guid: 43f930983f7835e479605bcd07dd5c6c, type: 2}
       propertyPath: m_Name
       value: BoatPhysicsPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114468467752835026, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: rotLerpTimeTotal
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65817888119494244, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43f930983f7835e479605bcd07dd5c6c, type: 2}

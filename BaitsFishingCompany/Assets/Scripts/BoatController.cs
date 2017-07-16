@@ -6,6 +6,10 @@ using com.ootii.Messages;
 public class BoatController : MonoBehaviour {
     public GameObject Monster;
     float maxSpeed = 10;
+    float thwampSpeed = 9.5f;
+    bool thwamping = false;
+    public int health = 10;
+
     public float angularMoveSpeed = 180;
     public float drag = 0.9f;
 
@@ -16,6 +20,10 @@ public class BoatController : MonoBehaviour {
     float currentSpeed = 0;
     float timeTilMaxSpeed = 0.8f;
 
+    public float rotLerpTime = 0;
+    public float rotLerpTimeTotal = 1;
+    public AnimationCurve rotLerpCurve;
+    private Quaternion startRot;
     Rigidbody myRigidbody;
 	// Use this for initialization
 	void Start () {
@@ -39,37 +47,42 @@ public class BoatController : MonoBehaviour {
         currentSpeed *= drag;
         currentSpeed = Mathf.Clamp(currentSpeed, -timeTilMaxSpeed, timeTilMaxSpeed);
 
+        if(currentSpeed >= thwampSpeed)
+        {
+            thwamping = true;
+        }
+
         Vector3 pos = transform.position;
         pos.z = 1;
         transform.position = pos;
 
         if( DistanceTo(Monster) > maxDistance )
         {
-            transform.position = Monster.transform.position - VectorTo(Monster.transform.position) * maxDistance;
+            int n = 30;
+            transform.position = ((transform.position * (n - 1) + transform.position + VectorTo(Monster.transform.position) * maxDistance)) / n;
         }
 
         if (DistanceTo(Monster) >= tightDistance)
         {
+            rotLerpTime += Time.deltaTime;
+            float lerpValue = rotLerpCurve.Evaluate(rotLerpTime / rotLerpTimeTotal);
 
             var dir = Monster.transform.position - transform.position;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            Quaternion goalDirection = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Lerp(startRot, goalDirection, lerpValue);
 
             //Quaternion Rot = Quaternion.LookRotation(Monster.transform.position - transform.position);
-            //print(Rot);
             //Rot = Quaternion.Euler(new Vector3(0f, 1f, 0f));
-            ////print(Rot);
             //print(Rot.eulerAngles);
             //transform.rotation = Quaternion.Slerp(transform.rotation, Rot, 1);
-            //print(transform.rotation);
 
-            //Vector3 toLookAt = Monster.transform.position;
-            //toLookAt.z = transform.position.z;
-            //transform.LookAt(toLookAt
             LineTight();
         }
         else
         {
+            startRot = transform.rotation;
+            rotLerpTime = 0;
             LineLoose();
         }
     }
@@ -102,7 +115,17 @@ public class BoatController : MonoBehaviour {
     {
         if (other.gameObject.name == "Enemy")
         {
-            Destroy(gameObject);
+            if(!thwamping)
+            {
+                --health;
+                if(health <= 0)
+                    Destroy(gameObject);
+            }
+            else
+            {
+                other.gameObject.GetComponent<EnemyLogic>().Thwamp();
+                currentSpeed = 1.0f;
+            }
         }
     }
 
