@@ -99,11 +99,26 @@ public class BoatController : MonoBehaviour {
         transform.position = (Quaternion.AngleAxis(angularMoveSpeed * AccelerationRate.Evaluate(Mathf.Abs(currentSpeed) / timeTilMaxSpeed) * Time.deltaTime * direction, Vector3.back) * connectingVector) + monsterLoc;
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnCollision(Collider other)
     {
         if (other.gameObject.name == "Enemy")
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        OnCollision(other);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        OnCollision(other);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        OnCollision(other);
     }
 }

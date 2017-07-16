@@ -24,6 +24,11 @@ public class EnemyLogic : MonoBehaviour {
 
     float DistanceTo(GameObject obj)
     {
+        if (!obj || !obj.activeInHierarchy)
+        {
+            return float.MaxValue;
+        }
+
         return (transform.position - obj.transform.position).magnitude;
     }
 
