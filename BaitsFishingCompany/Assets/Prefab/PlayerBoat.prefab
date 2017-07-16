@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54244357764573984}
   - component: {fileID: 114468467752835026}
   - component: {fileID: 114219602993327470}
-  - component: {fileID: 120020912170484968}
+  - component: {fileID: 120248412712048004}
   m_Layer: 0
   m_Name: PlayerBoat
   m_TagString: Untagged
@@ -167,7 +167,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!120 &120020912170484968
+--- !u!120 &120248412712048004
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114043854837599868}
   - component: {fileID: 114861587410020268}
   - component: {fileID: 114887591677485986}
+  - component: {fileID: 114727978908621002}
   m_Layer: 0
   m_Name: Globals
   m_TagString: Untagged
@@ -55,6 +56,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHovering: 0
   mousePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &114727978908621002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834448731468086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ab6eb1fafc8c342ac5256df1807944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 10
+  minePercent: 10
+  minePrefab: {fileID: 1617484595849302, guid: e9dd19c120d0a1443ac204ff716c1ee7, type: 2}
+  rockPrefabs:
+  - {fileID: 1359866370457014, guid: dfaf0329425776b459bdfd970c5c9d7e, type: 2}
+  - {fileID: 1583822405400420, guid: d92f0d4a4369d754890ba44348ac5162, type: 2}
+  - {fileID: 1161599658568146, guid: 299c452dea278e44398d75d5a98850eb, type: 2}
+  - {fileID: 1955116618544736, guid: cee927a931e38e54ebfbbc9a94cfe541, type: 2}
 --- !u!114 &114861587410020268
 MonoBehaviour:
   m_ObjectHideFlags: 1
