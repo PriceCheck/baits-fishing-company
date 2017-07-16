@@ -7,6 +7,8 @@ public class BoatController : MonoBehaviour {
 
     public float damageTime = 0.5f;
     private float curDamageTime = 0;
+    public float reverseCooldown = 0.5f;
+    public float curReverseCooldown = 0.0f;
 
     public GameObject Monster;
     float maxSpeed = 10;
@@ -46,6 +48,9 @@ public class BoatController : MonoBehaviour {
     void Update () {
         if (curDamageTime > 0)
             curDamageTime -= Time.deltaTime;
+        if (curReverseCooldown > 0)
+            curReverseCooldown -= Time.deltaTime;
+
         FindObjectOfType<HealthDisplay>().curHealth = health;
         DrawLine();
 
@@ -129,10 +134,16 @@ public class BoatController : MonoBehaviour {
             {
                 TakeDamage(1);
             }
-            else
+
+            if (other.GetComponent<EnemyLogic>() && thwamping)
             {
                 thwamping = false;
                 other.GetComponent<EnemyLogic>().Thwamp();
+            }
+
+            if (curReverseCooldown <= 0)
+            {
+                curReverseCooldown = reverseCooldown;
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 currentDirecitalTime = -currentDirecitalTime;
             }
