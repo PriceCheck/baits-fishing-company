@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour {
 
-    public GameObject boat;
-    public GameObject monster;
+    private GameObject boat;
+    private GameObject monster;
 
     public float hungerAcceleration = 2;
     public float fearAcceleration = 6;
@@ -40,8 +40,10 @@ public class EnemyLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        monster = GameObject.Find("MonsterPhysicsPrefab");
+        boat = GameObject.Find("BoatPhysicsPrefab");
+
+    }
 	
     void LogicLogic()
     {
@@ -81,8 +83,17 @@ public class EnemyLogic : MonoBehaviour {
 
     }
 
-	// Update is called once per frame
-	void Update ()
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "MonsterPhysicsPrefab")
+        {
+            FindObjectOfType<ScoreDisplay>().thingsKilled++;
+            Destroy(gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         LogicLogic();
 

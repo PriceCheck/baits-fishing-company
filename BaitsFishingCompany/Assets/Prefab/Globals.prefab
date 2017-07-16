@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4239639083599558}
   - component: {fileID: 114043854837599868}
+  - component: {fileID: 114861587410020268}
   m_Layer: 0
   m_Name: Globals
   m_TagString: Untagged
@@ -51,3 +52,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d0fc778d2a2f4990d32715f4a4826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectHovering: 0
+  mousePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &114861587410020268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834448731468086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a9a2b1b1ff6c84692f1cd4373c7692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 10
+  speedBoost: 0
+  thingToSpawn: {fileID: 1615300362115218, guid: 8a6e111e973db88459e2ef25fa142123,
+    type: 2}
