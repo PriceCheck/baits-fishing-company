@@ -22,6 +22,9 @@ public class EnemyLogic : MonoBehaviour {
     private Vector3 currentDerpGoal;
     private Vector3 derpDirection;
 
+    public float stunTime = 4.0f;
+    private float curStunTime = 0.0f;
+
     float DistanceTo(GameObject obj)
     {
         if (!obj || !obj.activeInHierarchy)
@@ -49,7 +52,12 @@ public class EnemyLogic : MonoBehaviour {
         boat = GameObject.Find("BoatPhysicsPrefab");
 
     }
-	
+
+    public void Thwamp()
+    {
+        curStunTime = stunTime;
+    }
+
     void LogicLogic()
     {
         if (DistanceTo(monster) > maxCaringDistance && DistanceTo(boat) > maxCaringDistance)
@@ -100,6 +108,9 @@ public class EnemyLogic : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (curStunTime > 0)
+            return;
+
         LogicLogic();
 
         DerpyLogic();
