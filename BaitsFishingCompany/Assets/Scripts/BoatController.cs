@@ -24,7 +24,6 @@ public class BoatController : MonoBehaviour {
     public float rotLerpTimeTotal = 1;
     public AnimationCurve rotLerpCurve;
     private Quaternion startRot;
-
     Rigidbody myRigidbody;
 	// Use this for initialization
 	void Start () {
