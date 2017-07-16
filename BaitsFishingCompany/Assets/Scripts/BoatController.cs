@@ -6,7 +6,6 @@ using com.ootii.Messages;
 public class BoatController : MonoBehaviour {
     public GameObject Monster;
     float maxSpeed = 10;
-    float thwampSpeed = 9.5f;
     bool thwamping = false;
     public int health = 10;
 
@@ -17,7 +16,7 @@ public class BoatController : MonoBehaviour {
     public float maxDistance = 4.1f;
 
     public AnimationCurve AccelerationRate = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    float currentSpeed = 0;
+    float currentDirecitalTime = 0;
     float timeTilMaxSpeed = 0.8f;
 
     public float rotLerpTime = 0;
@@ -41,20 +40,15 @@ public class BoatController : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        DrawLine();
+
         float leftEngine = Input.GetKey(KeyCode.A) ? 1 : 0;
         float rightEngine = Input.GetKey(KeyCode.D) ? 1 : 0;
-        currentSpeed += (leftEngine * Time.deltaTime) - (rightEngine * Time.deltaTime);
-        currentSpeed *= drag;
-        currentSpeed = Mathf.Clamp(currentSpeed, -timeTilMaxSpeed, timeTilMaxSpeed);
+        currentDirecitalTime += (leftEngine * Time.deltaTime) - (rightEngine * Time.deltaTime);
+        currentDirecitalTime *= drag;
+        currentDirecitalTime = Mathf.Clamp(currentDirecitalTime, -timeTilMaxSpeed, timeTilMaxSpeed);
 
-        if(currentSpeed >= thwampSpeed)
-        {
-            thwamping = true;
-        }
-
-        Vector3 pos = transform.position;
-        pos.z = 1;
-        transform.position = pos;
+        thwamping = Mathf.Abs(currentDirecitalTime) >= Mathf.Abs(timeTilMaxSpeed) - 0.05;
 
         if( DistanceTo(Monster) > maxDistance )
         {
@@ -87,12 +81,21 @@ public class BoatController : MonoBehaviour {
         }
     }
 
+    void DrawLine()
+    {
+        Vector3 offset = Vector3.right * 0.85f;
+        offset = transform.TransformDirection(offset);
+
+        GetComponent<LineRenderer>().SetPosition(0, transform.position + offset);
+        GetComponent<LineRenderer>().SetPosition(1, Monster.transform.position);
+    }
+
     void LineLoose()
     {
         Vector3 moveDirection = Vector3.zero;
 
-        float direction = currentSpeed < 0 ? -1 : 1;
-        moveDirection.y = AccelerationRate.Evaluate(Mathf.Abs(currentSpeed) / timeTilMaxSpeed) * direction;
+        float direction = currentDirecitalTime < 0 ? -1 : 1;
+        moveDirection.y = AccelerationRate.Evaluate(Mathf.Abs(currentDirecitalTime) / timeTilMaxSpeed) * direction;
 
         moveDirection = transform.TransformDirection(moveDirection);
 
@@ -106,41 +109,33 @@ public class BoatController : MonoBehaviour {
         Vector3 monsterLoc = Monster.transform.position;
         Vector3 playerLoc = transform.position;
         Vector3 connectingVector = playerLoc - monsterLoc;
-        float direction = currentSpeed < 0 ? -1 : 1;
+        float direction = currentDirecitalTime < 0 ? -1 : 1;
 
-        transform.position = (Quaternion.AngleAxis(angularMoveSpeed * AccelerationRate.Evaluate(Mathf.Abs(currentSpeed) / timeTilMaxSpeed) * Time.deltaTime * direction, Vector3.back) * connectingVector) + monsterLoc;
+        transform.position = (Quaternion.AngleAxis(angularMoveSpeed * AccelerationRate.Evaluate(Mathf.Abs(currentDirecitalTime) / timeTilMaxSpeed) * Time.deltaTime * direction, Vector3.back) * connectingVector) + monsterLoc;
     }
 
-    private void OnCollision(Collider other)
+    private void OnCollision(GameObject other)
     {
-        if (other.gameObject.name == "Enemy")
+        if (other.GetComponent<EnemyLogic>() )
         {
             if(!thwamping)
             {
-                --health;
-                if(health <= 0)
-                    Destroy(gameObject);
+                TakeDamage(1);
             }
             else
             {
-                other.gameObject.GetComponent<EnemyLogic>().Thwamp();
-                currentSpeed = 1.0f;
+                thwamping = false;
+                other.GetComponent<EnemyLogic>().Thwamp();
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                currentDirecitalTime = -currentDirecitalTime;
             }
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void TakeDamage(int damage)
     {
-        OnCollision(other);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        OnCollision(other);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        OnCollision(other);
+        health -= damage;
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }

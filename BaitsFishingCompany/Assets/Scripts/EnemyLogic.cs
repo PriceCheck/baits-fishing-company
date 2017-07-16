@@ -56,13 +56,28 @@ public class EnemyLogic : MonoBehaviour {
     public void Thwamp()
     {
         curStunTime = stunTime;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     void LogicLogic()
     {
+        if (!GetComponent<ImBig>())
+        {
+            ImBig[] bigins = FindObjectsOfType<ImBig>();
+            foreach(ImBig bigly in bigins)
+            {
+                if (DistanceTo(bigly.gameObject) < autoFleeRange + 2f)
+                {
+                    GetComponent<Rigidbody>().velocity -= VectorTo(bigly.gameObject.transform.position) * superFearAcceleration * Time.deltaTime;
+                    return;
+                }
+            }
+
+        }
+
+
         if (DistanceTo(monster) > maxCaringDistance && DistanceTo(boat) > maxCaringDistance)
         {
-            //GetComponent<Rigidbody>().velocity *= Mathf.Pow(slowyDownFactor, Time.deltaTime);
             return;
         }
 
@@ -96,9 +111,9 @@ public class EnemyLogic : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollision(GameObject other)
     {
-        if(other.gameObject.name == "MonsterPhysicsPrefab")
+        if (other.name == "MonsterPhysicsPrefab")
         {
             FindObjectOfType<ScoreDisplay>().thingsKilled++;
             Destroy(gameObject);
