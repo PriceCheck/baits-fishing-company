@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 1390293707577230}
   m_LocalRotation: {x: -0, y: -0, z: -0.2517505, w: 0.9677922}
   m_LocalPosition: {x: -1.93, y: -0.2, z: -0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4401034378834514}
   m_Father: {fileID: 0}
@@ -113,8 +113,8 @@ MonoBehaviour:
   Monster: {fileID: 0}
   angularMoveSpeed: 180
   drag: 0.99
-  tightDistance: 4
-  maxDistance: 4.1
+  tightDistance: 3
+  maxDistance: 3.1
   AccelerationRate:
     serializedVersion: 2
     m_Curve:

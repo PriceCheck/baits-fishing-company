@@ -15,7 +15,6 @@ public class BoatController : MonoBehaviour {
     public AnimationCurve AccelerationRate = AnimationCurve.EaseInOut(0, 0, 1, 1);
     float currentSpeed = 0;
     float timeTilMaxSpeed = 0.8f;
-    
 
     Rigidbody myRigidbody;
 	// Use this for initialization
