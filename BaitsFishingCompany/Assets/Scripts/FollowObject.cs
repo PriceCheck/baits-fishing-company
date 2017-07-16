@@ -31,6 +31,14 @@ public class FollowObject : MonoBehaviour {
         toObject /= toObject.magnitude;
         float currentSpeed = speedCurve.Evaluate(distanceToObject / maxDistance) * maxSpeed;
         Vector3 currentVelocity = toObject * currentSpeed;
-        transform.position += toObject * currentSpeed * Time.deltaTime;
+
+        if (GetComponent<Rigidbody>())
+        {
+            GetComponent<Rigidbody>().velocity = toObject * currentSpeed;
+        }
+        else
+        {
+            transform.position += toObject * currentSpeed * Time.deltaTime;
+        }
     }
 }
