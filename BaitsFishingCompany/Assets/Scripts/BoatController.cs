@@ -4,6 +4,10 @@ using UnityEngine;
 using com.ootii.Messages;
 
 public class BoatController : MonoBehaviour {
+
+    public float damageTime = 0.5f;
+    private float curDamageTime = 0;
+
     public GameObject Monster;
     float maxSpeed = 10;
     bool thwamping = false;
@@ -40,6 +44,9 @@ public class BoatController : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if (curDamageTime > 0)
+            curDamageTime -= Time.deltaTime;
+        FindObjectOfType<HealthDisplay>().curHealth = health;
         DrawLine();
 
         float leftEngine = Input.GetKey(KeyCode.A) ? 1 : 0;
@@ -116,9 +123,9 @@ public class BoatController : MonoBehaviour {
 
     private void OnCollision(GameObject other)
     {
-        if (other.GetComponent<EnemyLogic>() )
+        if (other.GetComponent<EnemyLogic>() || other.GetComponent<Fall>() /*rocks*/ )
         {
-            if(!thwamping)
+            if(!thwamping || other.GetComponent<Fall>())
             {
                 TakeDamage(1);
             }
@@ -134,6 +141,10 @@ public class BoatController : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+        if (curDamageTime > 0)
+            return;
+        FindObjectOfType<HealthDisplay>().curHealth = health;
+        curDamageTime = damageTime;
         health -= damage;
         if (health <= 0)
             Destroy(gameObject);

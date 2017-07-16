@@ -95,7 +95,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  minDistance: 0.1
+  minDistance: 0.3
   maxDistance: 10
   maxSpeed: 10
 --- !u!114 &114755414230426484

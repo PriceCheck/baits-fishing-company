@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d528683012a3240bb9deb7961ade69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTime: 0.5
   Monster: {fileID: 0}
   health: 10
   angularMoveSpeed: 180

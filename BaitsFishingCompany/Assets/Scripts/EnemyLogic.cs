@@ -123,6 +123,11 @@ public class EnemyLogic : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        var dir = GetComponent<Rigidbody>().velocity;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion goalDirection = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = goalDirection;
+
         if (curStunTime > 0)
             return;
 

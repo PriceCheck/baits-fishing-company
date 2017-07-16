@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreDisplay : MonoBehaviour {
-
-    public int thingsKilled = 0;
-
+public class HealthDisplay : MonoBehaviour {
+    public int curHealth = 10;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +12,6 @@ public class ScoreDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Text>().text = "things killed : " + thingsKilled.ToString();
-	}
+        GetComponent<Text>().text = "Health : " + curHealth.ToString();
+    }
 }

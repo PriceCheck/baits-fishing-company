@@ -156,6 +156,11 @@ Prefab:
       propertyPath: m_Name
       value: BoatPhysicsPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 54244357764573984, guid: 43f930983f7835e479605bcd07dd5c6c,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43f930983f7835e479605bcd07dd5c6c, type: 2}
   m_IsPrefabParent: 0
@@ -284,8 +289,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54996939255660450, guid: d92f0d4a4369d754890ba44348ac5162,
         type: 2}
-      propertyPath: m_Mass
-      value: 0.1
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d92f0d4a4369d754890ba44348ac5162, type: 2}
@@ -329,10 +334,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 135345725787402454, guid: e04979fc4b2d99c4c954fc0b04d606ba,
+    - target: {fileID: 54986845852436780, guid: e04979fc4b2d99c4c954fc0b04d606ba,
         type: 2}
-      propertyPath: m_Radius
-      value: 0.54
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e04979fc4b2d99c4c954fc0b04d606ba, type: 2}
@@ -376,10 +381,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 135501416381671638, guid: 8a6e111e973db88459e2ef25fa142123,
+    - target: {fileID: 54445149333707166, guid: 8a6e111e973db88459e2ef25fa142123,
         type: 2}
-      propertyPath: m_Radius
-      value: 0.27
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a6e111e973db88459e2ef25fa142123, type: 2}
@@ -434,13 +439,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54271209752060856, guid: 92c6492f204120740a80b9e063dcbab3,
         type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54271209752060856, guid: 92c6492f204120740a80b9e063dcbab3,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 0
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92c6492f204120740a80b9e063dcbab3, type: 2}
@@ -548,8 +548,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54240669215160324, guid: cee927a931e38e54ebfbbc9a94cfe541,
         type: 2}
-      propertyPath: m_Mass
-      value: 0.1
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cee927a931e38e54ebfbbc9a94cfe541, type: 2}
@@ -644,6 +644,11 @@ Prefab:
     - target: {fileID: 4662345861209106, guid: e9dd19c120d0a1443ac204ff716c1ee7, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 54308785677696932, guid: e9dd19c120d0a1443ac204ff716c1ee7,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9dd19c120d0a1443ac204ff716c1ee7, type: 2}
@@ -745,31 +750,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224224319126537272, guid: 23c5ed64c1932f1428ac6bf491fa841f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 224224319126537272, guid: 23c5ed64c1932f1428ac6bf491fa841f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 114415126240825948, guid: 23c5ed64c1932f1428ac6bf491fa841f,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114415126240825948, guid: 23c5ed64c1932f1428ac6bf491fa841f,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114415126240825948, guid: 23c5ed64c1932f1428ac6bf491fa841f,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23c5ed64c1932f1428ac6bf491fa841f, type: 2}
   m_IsPrefabParent: 0
@@ -861,8 +841,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54102173385362054, guid: dfaf0329425776b459bdfd970c5c9d7e,
         type: 2}
-      propertyPath: m_Mass
-      value: 0.1
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfaf0329425776b459bdfd970c5c9d7e, type: 2}
@@ -913,8 +893,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 54796716577390170, guid: 299c452dea278e44398d75d5a98850eb,
         type: 2}
-      propertyPath: m_Mass
-      value: 0.1
+      propertyPath: m_AngularDrag
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 299c452dea278e44398d75d5a98850eb, type: 2}
