@@ -83,7 +83,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 4
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -123,10 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d528683012a3240bb9deb7961ade69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTime: 0.5
+  damageTime: 1
+  reverseCooldown: 0.5
+  curReverseCooldown: 0
   Monster: {fileID: 0}
+  thwamping: 0
   health: 10
-  angularMoveSpeed: 180
+  angularMoveSpeed: 360
   drag: 0.99
   tightDistance: 3
   maxDistance: 3.1
@@ -148,6 +151,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  currentDirecitalTime: 0
+  timeTilMaxSpeed: 1
   rotLerpTime: 0
   rotLerpTimeTotal: 0.2
   rotLerpCurve:

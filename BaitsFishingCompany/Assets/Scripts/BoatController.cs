@@ -162,6 +162,7 @@ public class BoatController : MonoBehaviour {
         curDamageTime = damageTime;
         health -= damage;
         if (health <= 0)
-            Destroy(gameObject);
+            Application.LoadLevel(2);
+        //Destroy(gameObject);
     }
 }

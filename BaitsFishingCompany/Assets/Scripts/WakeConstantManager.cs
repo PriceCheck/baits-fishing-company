@@ -19,13 +19,13 @@ public class WakeConstantManager : MonoBehaviour {
 	void Update () {
         if(!player.isActiveAndEnabled)
         { return; }
-        transform.position = player.transform.position + player.transform.TransformDirection(Offset);
+
         if (onlyShowOnThump && !player.thwamping)
         {
-            myTrail.time = 0;
         }
         else
         {
+            transform.position = player.transform.position + player.transform.TransformDirection(Offset);
             float currentTime = Mathf.Abs(player.currentDirecitalTime) / player.timeTilMaxSpeed;
             myTrail.time = curve.Evaluate(currentTime);
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-
+    public float spawnDistance = 20.0f;
     public float interval = 10.0f;
     public float speedBoost = 0.0f;
     private float curTime;
@@ -35,23 +35,23 @@ public class EnemySpawner : MonoBehaviour {
             switch (Random.Range(1, 4))
             {
                 case 1:
-                spawnPos.x = 30;
-                spawnPos.y = Random.Range(-30, 30);
+                spawnPos.x = spawnDistance;
+                spawnPos.y = Random.Range(-spawnDistance, spawnDistance);
                 break;
 
                 case 2:
-                    spawnPos.x = -30;
-                    spawnPos.y = Random.Range(-30, 30);
+                    spawnPos.x = -spawnDistance;
+                    spawnPos.y = Random.Range(-spawnDistance, spawnDistance);
                     break;
 
                 case 3:
-                    spawnPos.y = 30;
-                    spawnPos.x = Random.Range(-30, 30);
+                    spawnPos.y = spawnDistance;
+                    spawnPos.x = Random.Range(-spawnDistance, spawnDistance);
                     break;
 
                 case 4:
-                    spawnPos.y = -30;
-                    spawnPos.x = Random.Range(-30, 30);
+                    spawnPos.y = -spawnDistance;
+                    spawnPos.x = Random.Range(-spawnDistance, spawnDistance);
                     break;
 
             }
